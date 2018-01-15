@@ -4,4 +4,13 @@ model {
 	Todo todo
 }
 
-json g.render(todo, [resolveTemplate: false])
+json {
+        _links {
+                self {
+                        href "${g.link(resource: 'todo', absolute: true)}/${todo.id}"
+                }
+        }
+  id todo.id
+        description todo.description
+        done todo.done
+}
