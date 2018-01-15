@@ -1,0 +1,7 @@
+import todo.Todo
+
+model {
+	Todo todo
+}
+
+json g.render(todo, [resolveTemplate: false])
