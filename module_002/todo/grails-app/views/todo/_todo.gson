@@ -5,12 +5,8 @@ model {
 }
 
 json {
-        _links {
-                self {
-                        href "${g.link(resource: 'todo', absolute: true)}/${todo.id}"
-                }
-        }
-  id todo.id
-        description todo.description
-        done todo.done
+	hal.links(todo)
+	id todo.id
+	description todo.description
+	done todo.done
 }

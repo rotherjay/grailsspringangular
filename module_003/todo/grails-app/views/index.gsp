@@ -33,9 +33,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="/#">
-                    <i class="fa grails-icon">
-                        <asset:image src="grails-cupsonly-logo-white.svg"/>
-                    </i> Grails
+                    <asset:image src="grails.svg" alt="Grails Logo"/>
                 </a>
             </div>
             <div class="navbar-collapse collapse" aria-expanded="false" style="height: 0.8px;" uib-collapse="!navExpanded">
@@ -43,29 +41,29 @@
                     <li class="dropdown" uib-dropdown>
                         <a href="#" class="dropdown-toggle" uib-dropdown-toggle role="button" aria-haspopup="true" aria-expanded="false">Application Status <span class="caret"></span></a>
                         <ul class="dropdown-menu" uib-dropdown-menu>
-                            <li><a href="#">Environment: {{vm.applicationData.environment}}</a></li>
-                            <li><a href="#">App profile: {{vm.applicationData.appprofile}}</a></li>
-                            <li><a href="#">App version: {{vm.applicationData.appversion}}</a></li>
+                            <li><a href="#">Environment: {{indexCtrl.applicationData.environment}}</a></li>
+                            <li><a href="#">App profile: {{indexCtrl.applicationData.appprofile}}</a></li>
+                            <li><a href="#">App version: {{indexCtrl.applicationData.appversion}}</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="#">Grails version: {{vm.applicationData.grailsversion}}</a></li>
-                            <li><a href="#">Groovy version: {{vm.applicationData.groovyversion}}</a></li>
-                            <li><a href="#">JVM version: {{vm.applicationData.jvmversion}}</a></li>
+                            <li><a href="#">Grails version: {{indexCtrl.applicationData.grailsversion}}</a></li>
+                            <li><a href="#">Groovy version: {{indexCtrl.applicationData.groovyversion}}</a></li>
+                            <li><a href="#">JVM version: {{indexCtrl.applicationData.jvmversion}}</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="#">Reloading active: {{vm.applicationData.reloadingagentenabled}}</a></li>
+                            <li><a href="#">Reloading active: {{indexCtrl.applicationData.reloadingagentenabled}}</a></li>
                         </ul>
                     </li>
                     <li class="dropdown" uib-dropdown>
                         <a href="#" class="dropdown-toggle" uib-dropdown-toggle role="button" aria-haspopup="true" aria-expanded="false">Artefacts <span class="caret"></span></a>
                         <ul class="dropdown-menu" uib-dropdown-menu>
-                            <li><a href="#">Controllers: {{vm.applicationData.artefacts.controllers}}</a></li>
-                            <li><a href="#">Domains: {{vm.applicationData.artefacts.domains}}</a></li>
-                            <li><a href="#">Services: {{vm.applicationData.artefacts.services}}</a></li>
+                            <li><a href="#">Controllers: {{indexCtrl.applicationData.artefacts.controllers}}</a></li>
+                            <li><a href="#">Domains: {{indexCtrl.applicationData.artefacts.domains}}</a></li>
+                            <li><a href="#">Services: {{indexCtrl.applicationData.artefacts.services}}</a></li>
                         </ul>
                     </li>
                     <li class="dropdown" uib-dropdown>
                         <a href="#" class="dropdown-toggle" uib-dropdown-toggle role="button" aria-haspopup="true" aria-expanded="false">Installed Plugins <span class="caret"></span></a>
                         <ul class="dropdown-menu" uib-dropdown-menu>
-                            <li ng-repeat="plugin in vm.applicationData.plugins"><a href="#">{{plugin.name}} - {{plugin.version}}</a></li>
+                            <li ng-repeat="plugin in indexCtrl.applicationData.plugins"><a href="#">{{plugin.name}} - {{plugin.version}}</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -73,15 +71,12 @@
         </div>
     </div>
 
-    <div class="svg" role="presentation">
-        <div class="grails-logo-container">
-            <asset:image src="grails-cupsonly-logo-white.svg" class="grails-logo"/>
-        </div>
-    </div>
+    <div ui-view></div>
+
+    
 
     <div id="content" role="main">
         <section class="row colset-2-its">
-            <!-- Our code will be here -->
             <div class="form">
                 <input type="text" ng-model="vm.newTodo.description" />
                 <button type="button" ng-click="vm.save()">add</button>
@@ -90,6 +85,8 @@
             <div ng-include="'/todo/list.html'"></div>
         </section>
     </div>
+
+
 
     <div class="footer" role="contentinfo"></div>
 
